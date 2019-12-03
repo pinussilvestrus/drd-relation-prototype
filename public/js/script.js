@@ -21,6 +21,7 @@ function switchView(viewId) {
 }
 
 $(document).ready(function(){
-    $('#ib-drd-holiday').click(switchView.bind(this, 'dt-holiday'));
-    $('#ib-drd-season').click(switchView.bind(this, 'dt-season'));
+    $('.to-dt-holiday').click(switchView.bind(this, 'dt-holiday'));
+    $('.to-dt-season').click(switchView.bind(this, 'dt-season'));
+    $('.to-drd').click(switchView.bind(this, 'drd'));
 });

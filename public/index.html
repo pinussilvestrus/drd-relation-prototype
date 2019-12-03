@@ -1,38 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
-    </head>
-    <body>
-        <script src="vendor/jquery.min.js"></script>
-        <script src="js/script.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  </head>
+  <body>
+    <script src="vendor/jquery.min.js"></script>
+    <script src="js/script.js"></script>
 
-        <div class="content">
-            <!-- DRD -->
-            <div id="view-drd" class="view">
-                <div 
-                    id="ib-drd-holiday"
-                    class="interaction-box" 
-                    style="width: 25px; height: 25px; top: 200px; left: 260px" 
-                ></div>
+    <div class="content">
+      <!-- DRD -->
+      <div id="view-drd" class="view">
+        <div
+          class="interaction-box to-dt-holiday"
+          style="width: 25px; height: 25px; top: 200px; left: 260px"
+        ></div>
 
-                <div 
-                    id="ib-drd-season"
-                    class="interaction-box"
-                    style="width: 25px; height: 25px; top: 380px; left: 190px" 
-                ></div>
-            </div>
+        <div
+          class="interaction-box to-dt-season"
+          style="width: 25px; height: 25px; top: 380px; left: 190px"
+        ></div>
 
-            <!-- Decision Table Season -->
-            <div id="view-dt-season" class="view">
-               
-            </div>
+        <div
+          class="interaction-box to-dt-season"
+          style="width: 60px; height: 20px; top: 670px; left: 115px"
+        ></div>
 
-            <!-- Decision Table Holiday -->
-            <div id="view-dt-holiday" class="view">
-               
-            </div>
-        </div>
-    </body>
+        <div
+          class="interaction-box to-dt-holiday"
+          style="width: 60px; height: 20px; top: 670px; left: 190px"
+        ></div>
+      </div>
+
+      <!-- Decision Table Holiday -->
+      <div id="view-dt-holiday" class="view">
+        <div
+          class="interaction-box to-drd"
+          style="width: 70px; height: 25px; top: 110px; left: 830px"
+        ></div>
+
+        <div
+          class="interaction-box to-drd"
+          style="width: 60px; height: 20px; top: 670px; left: 60px"
+        ></div>
+
+        <div
+          class="interaction-box to-dt-season"
+          style="width: 60px; height: 20px; top: 670px; left: 115px"
+        ></div>
+      </div>
+
+      <!-- Decision Table Season -->
+      <div id="view-dt-season" class="view">
+        <div
+          class="interaction-box to-drd"
+          style="width: 70px; height: 25px; top: 110px; left: 830px"
+        ></div>
+
+        <div
+          class="interaction-box to-drd"
+          style="width: 60px; height: 20px; top: 670px; left: 60px"
+        ></div>
+
+        <div
+          class="interaction-box to-dt-holiday"
+          style="width: 60px; height: 20px; top: 670px; left: 190px"
+        ></div>
+      </div>
+    </div>
+  </body>
 </html>
