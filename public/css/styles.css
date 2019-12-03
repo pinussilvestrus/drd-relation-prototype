@@ -17,6 +17,11 @@ body {
   visibility: hidden;
 }
 
+#view-drd-relations {
+  background-image: url(/views/drd_relations.png);
+  visibility: hidden;
+}
+
 .view {
   position: fixed;
   width: 1200px;
@@ -37,11 +42,16 @@ body {
   visibility: hidden;
   position: fixed;
   width: 100px;
-  height: 20px;
+  height: 25px;
   background: #52b414;
   color: whitesmoke;
-  left: 312px;
-  top: 326px;
+  left: 540px;
+  top: 320px;
+  border-radius: 5px;
+}
+
+.see-relations:hover {
+    cursor: pointer;
 }
 
 .connection-outline-permanent {
@@ -55,8 +65,8 @@ body {
 .connection-outline-permanent {
   width: 15px;
   height: 120px;
-  left: 287px;
-  top: 260px;
+  left: 516px;
+  top: 255px;
   transform: rotate(31deg);
   -moz-transform: rotate(31deg);
   -ms-transform: rotate(31deg);
