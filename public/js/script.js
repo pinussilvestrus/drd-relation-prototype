@@ -28,8 +28,15 @@ function toggleDRDHovers(val) {
 
     const node2 = $('.see-relations');
 
+    const node3 = $('.inputs');
+
+    const node4 = $('.outputs');
+
+
     node1.css('visibility', val);
     node2.css('visibility', val);
+    node3.css('visibility', val);
+    node4.css('visibility', val);
 }
 
 $(document).ready(function(){
@@ -53,5 +60,22 @@ $(document).ready(function(){
 
     $('.connection').click(function() {
         toggleDRDHovers('visible');
+    });
+
+    // todo(pinussilvestrus): use toggle method instead
+    $('.connection').mouseover(function() {
+        const inputs = $('.inputs');
+        const outputs = $('.outputs');
+    
+        inputs.css('visibility', 'visible');
+        outputs.css('visibility', 'visible');
+    });
+
+    $('.connection').mouseleave(function() {
+        const inputs = $('.inputs');
+        const outputs = $('.outputs');
+    
+        inputs.css('visibility', 'hidden');
+        outputs.css('visibility', 'hidden');
     });
 });
