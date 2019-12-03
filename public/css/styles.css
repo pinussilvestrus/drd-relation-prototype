@@ -22,6 +22,11 @@ body {
   visibility: hidden;
 }
 
+#view-drd-relations-new {
+  background-image: url(/views/drd_relations_new.png);
+  visibility: hidden;
+}
+
 .view {
   position: fixed;
   width: 1200px;
@@ -51,7 +56,7 @@ body {
 }
 
 .see-relations:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .connection-outline-permanent {
