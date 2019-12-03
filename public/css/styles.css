@@ -1,6 +1,19 @@
-#drd1 {
+#view-drd {
+    background-image: url(/views/drd.png);
+}
+
+#view-dt-season {
+    background-image: url(/views/dt_season.png);
+    visibility: hidden;
+}
+
+#view-dt-holiday {
+    background-image: url(/views/dt_holiday.png);
+    visibility: hidden;
+}
+
+.view {
     position: fixed;
-    background-image: url(/views/main.png);
     width: 1200px;
     height: 740px;
     background-size: contain;

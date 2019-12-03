@@ -1,21 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
     </head>
-<body>
-    <div class="content">
-        <div id="drd1">
-            <div 
-                class="interaction-box" 
-                style="width: 25px; height: 25px; top: 200px; left: 260px" 
-            ></div>
+    <body>
+        <script src="vendor/jquery.min.js"></script>
+        <script src="js/script.js"></script>
 
-            <div 
-                class="interaction-box" 
-                style="width: 25px; height: 25px; top: 380px; left: 190px" 
-            ></div>
+        <div class="content">
+            <!-- DRD -->
+            <div id="view-drd" class="view">
+                <div 
+                    id="ib-drd-holiday"
+                    class="interaction-box" 
+                    style="width: 25px; height: 25px; top: 200px; left: 260px" 
+                ></div>
+
+                <div 
+                    id="ib-drd-season"
+                    class="interaction-box"
+                    style="width: 25px; height: 25px; top: 380px; left: 190px" 
+                ></div>
+            </div>
+
+            <!-- Decision Table Season -->
+            <div id="view-dt-season" class="view">
+               
+            </div>
+
+            <!-- Decision Table Holiday -->
+            <div id="view-dt-holiday" class="view">
+               
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
