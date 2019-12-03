@@ -1,0 +1,16 @@
+#drd1 {
+    position: fixed;
+    background-image: url(/views/main.png);
+    width: 1200px;
+    height: 740px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.interaction-box {
+    position: fixed;
+}
+
+.interaction-box:hover {
+    cursor: pointer;
+}
