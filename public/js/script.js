@@ -2,9 +2,14 @@ const views = {
     drd: { selector: "#view-drd" },
     'dt-season': { selector: "#view-dt-season" },
     'dt-holiday': { selector: "#view-dt-holiday" },
+    'dt-holiday-wrong': { selector: "#view-dt-holiday-wrong" },
     'drd-relations': { selector: "#view-drd-relations" },
+    'drd-relations-correct-type': { selector: "#view-drd-relations-correct-type" },
     'drd-relations-new': { selector: "#view-drd-relations-new" }
 }
+
+let stateHoliday;
+let stateRelations;
 
 function switchView(viewId) {
 
@@ -40,14 +45,33 @@ function toggleDRDHovers(val) {
 }
 
 $(document).ready(function(){
-    $('.to-dt-holiday').click(switchView.bind(this, 'dt-holiday'));
+    $('.to-dt-holiday').click(function() {
+        if(stateHoliday === 'type-fixed') {
+            switchView('dt-holiday')
+        } else {
+            switchView('dt-holiday-wrong')
+        }
+    });
+
+    $('.change-type').click(function() {
+        stateHoliday = 'type-fixed';
+        stateRelations = 'correct-type';
+        
+        switchView('dt-holiday');
+    });
+
     $('.to-dt-season').click(switchView.bind(this, 'dt-season'));
     $('.to-drd').click(switchView.bind(this, 'drd'));
     $('.to-relations-new').click(switchView.bind(this, 'drd-relations-new'));
 
     $('.see-relations').click(function() {
-        switchView('drd-relations');
         toggleDRDHovers('hidden');
+
+        if(stateRelations === 'correct-type') {
+            switchView('drd-relations-correct-type');
+        } else {
+            switchView('drd-relations')
+        }
     });
 
     $('#view-drd').click(function(e) {

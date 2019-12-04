@@ -17,8 +17,18 @@ body {
   visibility: hidden;
 }
 
+#view-dt-holiday-wrong {
+  background-image: url(/views/dt_holiday_wrongtype.png);
+  visibility: hidden;
+}
+
 #view-drd-relations {
   background-image: url(/views/drd_relations.png);
+  visibility: hidden;
+}
+
+#view-drd-relations-correct-type {
+  background-image: url(/views/drd_relations_correct_type.png);
   visibility: hidden;
 }
 
