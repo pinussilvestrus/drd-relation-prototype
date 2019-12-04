@@ -69,8 +69,8 @@ body {
 
 .view {
   position: fixed;
-  width: 1440px;
-  height: 1080px;
+  width: 1405px;
+  height: 795px;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -90,8 +90,8 @@ body {
   height: 25px;
   background: #52b414;
   color: whitesmoke;
-  left: 686px;
-  top: 400px;
+  left: 588px;
+  top: 350px;
   border-radius: 5px;
   font-size: 100%;
 }
@@ -110,9 +110,9 @@ body {
 .connection,
 .connection-outline-permanent {
   width: 15px;
-  height: 150px;
-  left: 640px;
-  top: 315px;
+  height: 130px;
+  left: 554px;
+  top: 275px;
   transform: rotate(31deg);
   -moz-transform: rotate(31deg);
   -ms-transform: rotate(31deg);
@@ -129,8 +129,8 @@ body {
   visibility: hidden;
   position: fixed;
   font-size: smaller;
-  left: 709px;
-  top: 319px;
+  left: 440px;
+  top: 355px;
 }
 
 .inputs > span {
@@ -141,8 +141,8 @@ body {
   visibility: hidden;
   position: fixed;
   font-size: smaller;
-  left: 495px;
-  top: 425px;
+  left: 630px;
+  top: 285px;
 }
 
 .outputs > span {
