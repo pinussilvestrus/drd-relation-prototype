@@ -1,8 +1,11 @@
 const views = {
     drd: { selector: "#view-drd" },
     'dt-season': { selector: "#view-dt-season" },
+    'dt-season-complete': { selector: "#view-dt-season-complete" },
     'dt-holiday-wrong': { selector: "#view-dt-holiday-wrong" },
     'dt-holiday': { selector: "#view-dt-holiday" },
+    'dt-holiday-summerdays': { selector: "#view-dt-holiday-summerdays" },
+    'dt-holiday-complete': { selector: "#view-dt-holiday-complete" },
     'drd-relations': { selector: "#view-drd-relations" },
     'drd-relations-correct-type': { selector: "#view-drd-relations-correct-type" },
     'drd-relations-correct-variable': { selector: "#view-drd-relations-correct-variable" },
@@ -11,8 +14,7 @@ const views = {
     'drd-relations-complete': { selector: "#view-drd-relations-complete" }
 }
 
-let stateHoliday;
-let stateRelations;
+let state;
 
 function switchView(viewId) {
 
@@ -38,7 +40,6 @@ function toggleDRDHovers(val) {
 
     const node4 = $('.outputs');
 
-
     node1.css('visibility', val);
     node2.css('visibility', val);
     node3.css('visibility', val);
@@ -47,45 +48,53 @@ function toggleDRDHovers(val) {
 
 $(document).ready(function(){
     $('.to-dt-holiday').click(function() {
-        if(stateHoliday === 'type-fixed') {
-            switchView('dt-holiday')
-        } else {
-            switchView('dt-holiday-wrong')
+        toggleDRDHovers('hidden');
+
+        switch(state) {
+            case 'correct-type': switchView('dt-holiday'); break;
+            case 'correct-variable': switchView('dt-holiday-summerdays'); break;
+            case 'complete': switchView('dt-holiday-complete'); break;
+            default: switchView('dt-holiday-wrong'); break;
         }
     });
 
     $('.change-type').click(function() {
-        stateHoliday = 'type-fixed';
-        stateRelations = 'correct-type';
+        state = 'correct-type';
         switchView('dt-holiday');
     });
 
     $('.fix-variable').click(function() {
-        stateRelations = 'correct-variable';
+        state = 'correct-variable';
         switchView('drd-relations-correct-variable');
     });
 
-    $('.to-dt-season').click(switchView.bind(this, 'dt-season'));
+    $('.to-dt-season').click(function() {
+        toggleDRDHovers('hidden');
+
+        switch(state) {
+            case 'complete': switchView('dt-season-complete'); break;
+            default: switchView('dt-season'); break;
+        }
+    });
+
+
     $('.to-drd').click(switchView.bind(this, 'drd'));
     $('.to-relations-new').click(switchView.bind(this, 'drd-relations-new'));
     $('.to-relations-new-filled').click(switchView.bind(this, 'drd-relations-new-filled'));
 
     $('.to-relations-complete').click(function()  {
-        stateRelations = 'complete';
+        state = 'complete';
         switchView('drd-relations-complete');
     });
 
     $('.see-relations').click(function() {
         toggleDRDHovers('hidden');
 
-        if(stateRelations === 'correct-type') {
-            switchView('drd-relations-correct-type');
-        } else if(stateRelations === 'correct-variable') {
-            switchView('drd-relations-correct-variable');
-        } else if(stateRelations === 'complete') {
-            switchView('drd-relations-complete');
-        } else {
-            switchView('drd-relations');
+        switch(state) {
+            case 'correct-type': switchView('drd-relations-correct-type'); break;
+            case 'correct-variable': switchView('drd-relations-correct-variable'); break;
+            case 'complete': switchView('drd-relations-complete'); break;
+            default: switchView('drd-relations'); break;
         }
     });
 

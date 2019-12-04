@@ -12,6 +12,11 @@ body {
   visibility: hidden;
 }
 
+#view-dt-season-complete {
+  background-image: url(/views/dt_season_complete.png);
+  visibility: hidden;
+}
+
 #view-dt-holiday {
   background-image: url(/views/dt_holiday.png);
   visibility: hidden;
@@ -19,6 +24,16 @@ body {
 
 #view-dt-holiday-wrong {
   background-image: url(/views/dt_holiday_wrongtype.png);
+  visibility: hidden;
+}
+
+#view-dt-holiday-summerdays {
+  background-image: url(/views/dt_holiday_summerdays.png);
+  visibility: hidden;
+}
+
+#view-dt-holiday-complete {
+  background-image: url(/views/dt_holiday_complete.png);
   visibility: hidden;
 }
 
