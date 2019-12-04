@@ -6,7 +6,9 @@ const views = {
     'drd-relations': { selector: "#view-drd-relations" },
     'drd-relations-correct-type': { selector: "#view-drd-relations-correct-type" },
     'drd-relations-correct-variable': { selector: "#view-drd-relations-correct-variable" },
-    'drd-relations-new': { selector: "#view-drd-relations-new" }
+    'drd-relations-new': { selector: "#view-drd-relations-new" },
+    'drd-relations-new-filled': { selector: "#view-drd-relations-new-filled" },
+    'drd-relations-complete': { selector: "#view-drd-relations-complete" }
 }
 
 let stateHoliday;
@@ -18,8 +20,6 @@ function switchView(viewId) {
     const newView = views[viewId];
     const node = $(newView.selector);
     node.css('visibility', 'visible');
-
-    console.log(node);
 
     // make all others invisible
     Object.values(views).forEach(v => {
@@ -57,19 +57,23 @@ $(document).ready(function(){
     $('.change-type').click(function() {
         stateHoliday = 'type-fixed';
         stateRelations = 'correct-type';
-
         switchView('dt-holiday');
     });
 
     $('.fix-variable').click(function() {
         stateRelations = 'correct-variable';
-
         switchView('drd-relations-correct-variable');
     });
 
     $('.to-dt-season').click(switchView.bind(this, 'dt-season'));
     $('.to-drd').click(switchView.bind(this, 'drd'));
     $('.to-relations-new').click(switchView.bind(this, 'drd-relations-new'));
+    $('.to-relations-new-filled').click(switchView.bind(this, 'drd-relations-new-filled'));
+
+    $('.to-relations-complete').click(function()  {
+        stateRelations = 'complete';
+        switchView('drd-relations-complete');
+    });
 
     $('.see-relations').click(function() {
         toggleDRDHovers('hidden');
@@ -77,7 +81,9 @@ $(document).ready(function(){
         if(stateRelations === 'correct-type') {
             switchView('drd-relations-correct-type');
         } else if(stateRelations === 'correct-variable') {
-            switchView('drd-relations-correct-variable')
+            switchView('drd-relations-correct-variable');
+        } else if(stateRelations === 'complete') {
+            switchView('drd-relations-complete');
         } else {
             switchView('drd-relations');
         }

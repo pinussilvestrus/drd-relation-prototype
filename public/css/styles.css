@@ -33,12 +33,22 @@ body {
 }
 
 #view-drd-relations-correct-variable {
-    background-image: url(/views/drd_relations_correct_variable.png);
-    visibility: hidden;
-  }
+  background-image: url(/views/drd_relations_correct_variable.png);
+  visibility: hidden;
+}
 
 #view-drd-relations-new {
   background-image: url(/views/drd_relations_new.png);
+  visibility: hidden;
+}
+
+#view-drd-relations-new-filled {
+  background-image: url(/views/drd_relations_new_filled.png);
+  visibility: hidden;
+}
+
+#view-drd-relations-complete {
+  background-image: url(/views/drd_relations_complete.png);
   visibility: hidden;
 }
 
