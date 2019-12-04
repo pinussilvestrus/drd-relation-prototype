@@ -87,7 +87,7 @@ $(document).ready(function(){
         switchView('drd-relations-complete');
     });
 
-    $('.see-relations').click(function() {
+    $('.to-relations').click(function() {
         toggleDRDHovers('hidden');
 
         switch(state) {
