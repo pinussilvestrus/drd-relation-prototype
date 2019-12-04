@@ -1,10 +1,11 @@
 const views = {
     drd: { selector: "#view-drd" },
     'dt-season': { selector: "#view-dt-season" },
-    'dt-holiday': { selector: "#view-dt-holiday" },
     'dt-holiday-wrong': { selector: "#view-dt-holiday-wrong" },
+    'dt-holiday': { selector: "#view-dt-holiday" },
     'drd-relations': { selector: "#view-drd-relations" },
     'drd-relations-correct-type': { selector: "#view-drd-relations-correct-type" },
+    'drd-relations-correct-variable': { selector: "#view-drd-relations-correct-variable" },
     'drd-relations-new': { selector: "#view-drd-relations-new" }
 }
 
@@ -56,8 +57,14 @@ $(document).ready(function(){
     $('.change-type').click(function() {
         stateHoliday = 'type-fixed';
         stateRelations = 'correct-type';
-        
+
         switchView('dt-holiday');
+    });
+
+    $('.fix-variable').click(function() {
+        stateRelations = 'correct-variable';
+
+        switchView('drd-relations-correct-variable');
     });
 
     $('.to-dt-season').click(switchView.bind(this, 'dt-season'));
@@ -69,8 +76,10 @@ $(document).ready(function(){
 
         if(stateRelations === 'correct-type') {
             switchView('drd-relations-correct-type');
+        } else if(stateRelations === 'correct-variable') {
+            switchView('drd-relations-correct-variable')
         } else {
-            switchView('drd-relations')
+            switchView('drd-relations');
         }
     });
 

@@ -32,6 +32,11 @@ body {
   visibility: hidden;
 }
 
+#view-drd-relations-correct-variable {
+    background-image: url(/views/drd_relations_correct_variable.png);
+    visibility: hidden;
+  }
+
 #view-drd-relations-new {
   background-image: url(/views/drd_relations_new.png);
   visibility: hidden;
