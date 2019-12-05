@@ -129,8 +129,8 @@ body {
   visibility: hidden;
   position: fixed;
   font-size: smaller;
-  left: 440px;
-  top: 355px;
+  left: 415px;
+  top: 365px;
 }
 
 .inputs > span {
@@ -142,7 +142,7 @@ body {
   position: fixed;
   font-size: smaller;
   left: 630px;
-  top: 285px;
+  top: 280px;
 }
 
 .outputs > span {
