@@ -223,6 +223,9 @@ $(document).ready(function() {
       inputs.append(`<span>${i.name}: ${i.type}</span><br />`);
     });
 
+    // sets top automatically by size of values
+    outputs.css('top', `${405 - (values.outputs.length + 1) * 13}px`);
+
     renderHover();
   });
 
