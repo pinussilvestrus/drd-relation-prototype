@@ -233,4 +233,17 @@ $(document).ready(function() {
 
     emptyHover();
   });
+
+  $(".fa-plug").tooltip({
+    show: {
+      effect: "none",
+      delay: 250
+    },
+    position: {
+      using: function(position) {
+        $(this).css(position);
+        $(this).css("box-shadow", "none")
+      }
+    }
+  });
 });
