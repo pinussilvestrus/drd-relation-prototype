@@ -18,7 +18,8 @@ const views = {
   "drd-relations-complete": { selector: "#view-drd-relations-complete" }
 };
 
-let state;
+let viewState;
+let hoverState;
 
 function getInputOutputForState(state) {
   switch (state) {
@@ -85,26 +86,40 @@ function switchView(viewId) {
   });
 }
 
-function toggleDRDHovers(val) {
-  const node1 = $(".connection-outline-permanent");
+function toggleHovers(nodes, val) {
+  nodes.forEach(n => $(n).css("visibility", val));
+}
 
-  const node2 = $(".see-relations");
+function emptyHover() {
+  const inputs = $(".inputs");
+  const outputs = $(".outputs");
 
-  const node3 = $(".inputs");
+  inputs.empty();
+  outputs.empty();
 
-  const node4 = $(".outputs");
+  toggleHovers(
+    [
+      ".context-pad",
+      ".connection-outline",
+      ".click-hint",
+      ".inputs",
+      ".outputs"
+    ],
+    "hidden"
+  );
 
-  node1.css("visibility", val);
-  node2.css("visibility", val);
-  node3.css("visibility", val);
-  node4.css("visibility", val);
+  hoverState = "unfocused";
+}
+
+function renderHover() {
+  toggleHovers([".connection-outline", ".inputs", ".outputs"], "visible");
 }
 
 $(document).ready(function() {
   $(".to-dt-holiday").click(function() {
-    toggleDRDHovers("hidden");
+    emptyHover();
 
-    switch (state) {
+    switch (viewState) {
       case "correct-type":
         switchView("dt-holiday");
         break;
@@ -121,19 +136,19 @@ $(document).ready(function() {
   });
 
   $(".change-type").click(function() {
-    state = "correct-type";
+    viewState = "correct-type";
     switchView("dt-holiday");
   });
 
   $(".fix-variable").click(function() {
-    state = "correct-variable";
+    viewState = "correct-variable";
     switchView("drd-relations-correct-variable");
   });
 
   $(".to-dt-season").click(function() {
-    toggleDRDHovers("hidden");
+    emptyHover();
 
-    switch (state) {
+    switch (viewState) {
       case "complete":
         switchView("dt-season-complete");
         break;
@@ -150,14 +165,14 @@ $(document).ready(function() {
   );
 
   $(".to-relations-complete").click(function() {
-    state = "complete";
+    viewState = "complete";
     switchView("drd-relations-complete");
   });
 
   $(".to-relations").click(function() {
-    toggleDRDHovers("hidden");
+    emptyHover();
 
-    switch (state) {
+    switch (viewState) {
       case "correct-type":
         switchView("drd-relations-correct-type");
         break;
@@ -178,47 +193,44 @@ $(document).ready(function() {
       return;
     }
 
-    toggleDRDHovers("hidden");
+    emptyHover();
   });
 
   $(".connection").click(function() {
-    toggleDRDHovers("visible");
+    renderHover();
+    toggleHovers([".context-pad"], "visible");
+    hoverState = "focused";
   });
 
-  // todo(pinussilvestrus): use toggle method instead
   $(".connection").mouseover(function() {
+    if (hoverState === "focused") {
+      return;
+    }
 
-    // render input and outputs
-    const values = getInputOutputForState(state);
+    const values = getInputOutputForState(viewState);
 
     const inputs = $(".inputs");
     const outputs = $(".outputs");
 
-    console.log(values);
-
-    outputs.append('<b>Output Variables</b><br/>');
-    inputs.append('<b>Input Variables</b><br/>');
+    outputs.append("<b>Output Variables</b><br/>");
+    inputs.append("<b>Input Variables</b><br/>");
 
     values.outputs.forEach(o => {
-        outputs.append(`<span>${o.name}: ${o.type}</span><br />`)
+      outputs.append(`<span>${o.name}: ${o.type}</span><br />`);
     });
 
     values.inputs.forEach(i => {
-        inputs.append(`<span>${i.name}: ${i.type}</span><br />`)
+      inputs.append(`<span>${i.name}: ${i.type}</span><br />`);
     });
 
-    inputs.css("visibility", "visible");
-    outputs.css("visibility", "visible");
+    renderHover();
   });
 
   $(".connection").mouseleave(function() {
-    const inputs = $(".inputs");
-    const outputs = $(".outputs");
+    if (hoverState === "focused") {
+      return;
+    }
 
-    inputs.empty();
-    outputs.empty();
-
-    inputs.css("visibility", "hidden");
-    outputs.css("visibility", "hidden");
+    emptyHover();
   });
 });

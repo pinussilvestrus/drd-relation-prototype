@@ -83,32 +83,36 @@ body {
   cursor: pointer;
 }
 
-.see-relations {
-  visibility: hidden;
+.context-pad {
+  padding: 5px;
   position: fixed;
   width: 100px;
   height: 25px;
-  background: #52b414;
-  color: whitesmoke;
-  left: 588px;
-  top: 350px;
-  border-radius: 5px;
-  font-size: 100%;
+  left: 608px;
+  top: 278px;
+  visibility: hidden;
+  font-size: medium;
 }
 
-.see-relations:hover {
+.context-pad > i {
+  margin-right: 5px;
   cursor: pointer;
 }
 
-.connection-outline-permanent {
-  visibility: hidden;
+.connection-outline {
   position: fixed;
+  visibility: hidden;
+  width: 78px;
+  height: 128px;
+  top: 273px;
+  left: 524px;
   border-style: dashed;
   border-width: thin;
+  color: gray;
+  pointer-events: none;
 }
 
-.connection,
-.connection-outline-permanent {
+.connection {
   width: 15px;
   height: 130px;
   left: 554px;
@@ -120,9 +124,8 @@ body {
   -webkit-transform: rotate(31deg);
 }
 
-.connection:hover {
-  border-style: dashed;
-  border-width: thin;
+.connection {
+    cursor: pointer;
 }
 
 .outputs {
@@ -141,7 +144,7 @@ body {
   visibility: hidden;
   position: fixed;
   font-size: smaller;
-  left: 630px;
+  left: 486px;
   top: 280px;
 }
 
