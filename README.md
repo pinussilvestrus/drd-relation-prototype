@@ -4,5 +4,5 @@
 
 Easy click-dummy for user testing while Camunda DMN Innovation Week 2019.
 
-[**Visit Demo Site**](https://drd-relations.netlify.com/)
-[**User Test State**](https://drd-prototype-user-test.netlify.com/)
+* [**Visit Demo Site**](https://drd-relations.netlify.com/)
+* [**User Test State**](https://drd-prototype-user-test.netlify.com/)
