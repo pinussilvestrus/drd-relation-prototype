@@ -224,7 +224,7 @@ $(document).ready(function() {
     });
 
     // sets top automatically by size of values
-    outputs.css('top', `${405 - (values.outputs.length + 1) * 13}px`);
+    outputs.css("top", `${405 - (values.outputs.length + 1) * 13}px`);
 
     renderHover();
   });
@@ -237,6 +237,20 @@ $(document).ready(function() {
     emptyHover();
   });
 
+  $(".connection-input-data").mouseover(function() {
+    toggleHovers(
+      [".connection-input-data-outline", ".inputs-input-data"],
+      "visible"
+    );
+  });
+
+  $(".connection-input-data").mouseleave(function() {
+    toggleHovers(
+      [".connection-input-data-outline", ".inputs-input-data"],
+      "hidden"
+    );
+  });
+
   $(".fa-plug").tooltip({
     show: {
       effect: "none",
@@ -245,7 +259,7 @@ $(document).ready(function() {
     position: {
       using: function(position) {
         $(this).css(position);
-        $(this).css("box-shadow", "none")
+        $(this).css("box-shadow", "none");
       }
     }
   });

@@ -122,10 +122,7 @@ body {
   -ms-transform: rotate(31deg);
   -o-transform: rotate(31deg);
   -webkit-transform: rotate(31deg);
-}
-
-.connection {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .outputs {
@@ -150,4 +147,40 @@ body {
 
 .outputs > span {
   padding-left: 5px;
+}
+
+.connection-input-data-outline {
+  position: fixed;
+  visibility: hidden;
+  width: 10px;
+  height: 89px;
+  top: 468px;
+  left: 525px;
+  border-style: dashed;
+  border-width: thin;
+  color: gray;
+  pointer-events: none;
+}
+
+.connection-input-data {
+  position: fixed;
+  width: 15px;
+  height: 130px;
+  left: 525px;
+  top: 470px;
+  transform: rotate(9deg);
+  -moz-transform: rotate(9deg);
+  cursor: pointer;
+}
+
+.inputs-input-data > span {
+  padding-left: 5px;
+}
+
+.inputs-input-data {
+  visibility: hidden;
+  position: fixed;
+  font-size: smaller;
+  left: 551px;
+  top: 470px;
 }
